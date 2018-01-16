@@ -4,4 +4,13 @@
   <%= @question.description %>
 </ul>
 
+<h4>Comments</h4>
+<% @comments.each do |comment| %>
+  <li><%= comment.comment %></li>
+<% end %>
+
+<h4>Add New Comments:</h4>
+<%= render 'answerform' %>
+
+</br>
 <%= link_to 'Back', questions_path %>

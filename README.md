@@ -61,3 +61,16 @@ Things you may want to cover:
 </form>
 </br>
 </br> -->
+
+<!-- <%= form_for [@question, @comment] do |f| %>
+<p>
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
+  <% if @question.errors[:comment] %>
+     <p><small><%= @comment.errors[:comment].join(", ") %>
+   <% end %>
+</p>
+
+  <%= f.submit 'Submit Comment' %>
+
+<% end %> -->
