@@ -18,12 +18,11 @@ class QuestionsController < ApplicationController
       flash[:success] = 'Question successfully added'
       redirect_to @question
     else
-      flash[:errors] = 'Failed to save'
-      render action: 'new'
+      render :new
     end
   end
 
-  private
+  protected
 
     def question_params
       params.require(:question).permit(:title, :description)

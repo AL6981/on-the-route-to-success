@@ -1,12 +1,24 @@
-<form action="/questions" method="post">
-  <label>Question</label>
-  <input name="question[title]" type="text" minlength="20">
-</br>
-</br>
-  <label>Description</label>
-  <input name="question[description]" type="text" minlength="50">
+<%= 'Add a new question here:' %>
 
-  <input name="commit" type="submit">
-</form>
-</br>
-</br>
+
+
+<%= form_for @question do |f| %>
+<p>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <% if @question.errors[:title] %>
+     <p><small><%= @question.errors[:title].join(", ") %>
+   <% end %>
+</p>
+
+<p>
+  <%=f.label :description %>
+  <%= f.text_field :description %>
+  <% if @question.errors[:description] %>
+     <p><small><%= @question.errors[:description].join(", ") %>
+   <% end %>
+</p>
+
+  <%= f.submit 'Create Question' %>
+
+<% end %>
