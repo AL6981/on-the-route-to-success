@@ -11,12 +11,12 @@
 
 <p>
   <%=f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_area :description %>
   <% if @question.errors[:description] %>
      <p><small><%= @question.errors[:description].join(", ") %>
    <% end %>
 </p>
 
-  <%= f.submit 'Create Question' %>
+  <%= f.submit 'Submit Question' %>
 
 <% end %>

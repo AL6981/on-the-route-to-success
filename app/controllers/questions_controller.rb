@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+
   def index
     @questions = Question.all.sort_by{ |q| q.created_at}
   end
@@ -22,6 +23,27 @@ class QuestionsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+
+    if @question.update_attributes(question_params)
+      flash[:success] = 'Question successfully updated'
+      redirect_to questions_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    Question.find(params[:id]).destroy
+    flash[:success] = 'Question successfully deleted'
+    redirect_to questions_path
   end
 
   protected

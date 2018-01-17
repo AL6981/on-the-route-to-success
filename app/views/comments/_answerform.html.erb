@@ -2,14 +2,14 @@
 <%= form_for [@question, @comment] do |f| %>
   <div class="field">
     <%= f.label :comment, 'Comment'%><br />
-    <%= f.text_field :comment %>
+    <%= f.text_area :comment %>
     <% if @comment.errors[:comment] %>
        <p><small><%= @comment.errors[:comment].join(", ") %>
      <% end %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Submit Comment'%>
   </div>
 
 <% end %>

@@ -3,6 +3,8 @@
 <ul>
   <%= @question.description %>
 </ul>
+<p><%= link_to 'Edit', edit_question_path(@question) %>
+<%= link_to 'Destroy', @question, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
 <h4>Add New Comments:</h4>
 
