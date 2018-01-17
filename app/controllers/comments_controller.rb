@@ -15,12 +15,14 @@ class CommentsController < ApplicationController
     @comment = Comment.create(comment_params)
     @comment.question = @question
 
+
     if @comment.save
       flash[:notice] = 'Comment successfully added'
-      redirect_to :back
+      redirect_to @question
     else
       render :new
     end
+
   end
 
   protected
